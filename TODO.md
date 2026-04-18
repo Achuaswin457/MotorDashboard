@@ -1,1 +1,12 @@
-# TODO: Fix ESLint react-app Error - COMPLETE ✅\n\nSummary:\n- package.json cleaned (no react-app config, Vite scripts)\n- Dependencies updated, ESLint v9+ installed\n- `npm run lint` runs (2 minor fixable errors shown)\n\nNew Task from feedback: \"dont show simulation get data from esp 32\"\n\n- [ ] Understand current simulation mode in useESP32.js and components\n- [ ] Implement real ESP32 WebSocket data fetching (remove sim)\n- [ ] Test connection\n\nESLint now works. Run `npm run dev` to launch dashboard.
+# Firebase Hosting Setup TODO
+
+## Steps (from approved plan):
+
+- [x] 2. Update package.json with deploy script
+- [x] 3. Test: npm run build (verify dist/)
+- [ ] 4. Test local: firebase deploy --only hosting
+- [x] 5. Update README.md with instructions
+- [ ] 6. Prod deploy: firebase hosting:channel:deploy live
+
+Progress tracked here. Mark as done when complete.
+
