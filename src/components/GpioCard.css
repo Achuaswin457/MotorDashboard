@@ -1,0 +1,51 @@
+/* GpioCard.css */
+.gpio-card {}
+
+.gpio-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+
+.gpio-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  background: rgba(0,0,0,.18); border-radius: 7px;
+  border: 1px solid var(--border);
+  transition: border-color .25s;
+}
+.gpio-row.high { border-color: rgba(61,139,61,.4); }
+
+.gpio-led {
+  width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0;
+  background: var(--led-color);
+  box-shadow: 0 0 8px var(--led-glow);
+  transition: background .3s, box-shadow .3s;
+}
+
+.gpio-details {
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  min-width: 0;
+}
+.gpio-pin   { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--text-bright); min-width: 28px; }
+.gpio-gpio  { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); min-width: 54px; }
+.gpio-label { font-size: 12px; color: var(--text-main); }
+
+.gpio-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+.gpio-dir {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  padding: 2px 6px; border-radius: 3px; letter-spacing: .5px;
+}
+.dir-in  { background: rgba(36,113,163,.2); color: #5dade2; }
+.dir-out { background: rgba(61,139,61,.2);  color: var(--green-light); }
+
+.gpio-val {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  min-width: 36px; text-align: right;
+}
+.val-high { color: var(--green-glow); }
+.val-low  { color: #888; }
+
+.gpio-legend {
+  display: flex; gap: 16px; justify-content: flex-end;
+  font-size: 10px; font-family: var(--font-mono); color: var(--text-muted);
+}
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot  { width: 7px; height: 7px; border-radius: 50%; }

@@ -1,0 +1,126 @@
+/* MotorControlCard.css */
+.motor-card { display: flex; flex-direction: column; gap: 12px; }
+
+/* Status block */
+.motor-status {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px; border-radius: var(--radius-md);
+  border: 1px solid; transition: all .4s ease;
+  position: relative; overflow: hidden;
+}
+.motor-status--on    { background: rgba(61,139,61,.1);   border-color: var(--green-bright); animation: glow-pulse 2.5s ease-in-out infinite; }
+.motor-status--off   { background: rgba(30,30,30,.25);   border-color: var(--border); }
+.motor-status--fault { background: rgba(192,57,43,.08); border-color: var(--accent-red); animation: fault-blink .9s ease-in-out infinite; }
+
+.motor-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.motor-icon--on    { background: var(--green-mid); }
+.motor-icon--off   { background: rgba(70,70,70,.4); }
+.motor-icon--fault { background: rgba(192,57,43,.3); }
+
+.spin-icon { animation: spin 1.4s linear infinite; }
+
+.motor-info { flex: 1; }
+.motor-label { font-size: 20px; font-weight: 600; color: var(--text-bright); }
+.motor-sub   { font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); margin-top: 3px; }
+
+/* Running pulse ring */
+.motor-on-pulse {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--green-light);
+  box-shadow: 0 0 0 0 rgba(90,176,90,.6);
+  animation: ping 1.4s ease-out infinite;
+}
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 rgba(90,176,90,.6); }
+  70%  { box-shadow: 0 0 0 10px rgba(90,176,90,0); }
+  100% { box-shadow: 0 0 0 0 rgba(90,176,90,0); }
+}
+
+/* Timer */
+.timer-section { display: flex; flex-direction: column; gap: 6px; }
+.timer-header {
+  display: flex; justify-content: space-between;
+  font-size: 11px; font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+.timer-val { font-weight: 600; color: var(--green-glow); }
+.timer-bar-bg  { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.timer-bar-fill {
+  height: 100%; background: var(--green-bright); border-radius: 3px;
+  transition: width .15s linear;
+}
+
+/* Buttons */
+.controls-row { display: flex; gap: 10px; }
+
+.btn {
+  flex: 1; padding: 12px 16px;
+  border: 1px solid; border-radius: var(--radius-sm);
+  cursor: pointer; font-family: var(--font-main);
+  font-size: 14px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all .18s ease; letter-spacing: .2px;
+}
+.btn:active:not(:disabled) { transform: scale(.97); }
+.btn:disabled { opacity: .3; cursor: not-allowed; }
+
+.btn-start {
+  background: var(--green-mid); border-color: var(--green-bright); color: var(--text-bright);
+}
+.btn-start:hover:not(:disabled) {
+  background: var(--green-bright); box-shadow: 0 0 16px rgba(61,139,61,.4);
+}
+
+.btn-stop {
+  background: rgba(192,57,43,.12); border-color: var(--accent-red); color: #e74c3c;
+}
+.btn-stop:hover:not(:disabled) {
+  background: rgba(192,57,43,.28); box-shadow: 0 0 14px rgba(192,57,43,.35);
+}
+
+.btn-reset {
+  width: 100%; padding: 10px;
+  background: rgba(212,160,23,.1); border: 1px solid rgba(212,160,23,.45);
+  color: #f39c12; border-radius: var(--radius-sm);
+  font-family: var(--font-main); font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all .18s;
+}
+.btn-reset:hover { background: rgba(212,160,23,.22); }
+
+/* Toggle */
+.toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 13px;
+  background: rgba(0,0,0,.18); border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.toggle-label { font-size: 13px; color: var(--text-main); }
+
+.toggle-switch {
+  position: relative; width: 44px; height: 24px; cursor: pointer;
+  flex-shrink: 0; border-radius: 12px;
+}
+.toggle-track {
+  position: absolute; inset: 0; border-radius: 12px;
+  transition: background .25s;
+}
+.toggle-switch.on  .toggle-track { background: var(--green-bright); }
+.toggle-switch.off .toggle-track { background: var(--border); }
+.toggle-thumb {
+  position: absolute; top: 3px; width: 18px; height: 18px;
+  background: #fff; border-radius: 50%; transition: left .25s;
+}
+.toggle-switch.on  .toggle-thumb { left: 23px; }
+.toggle-switch.off .toggle-thumb { left: 3px; }
+
+.auto-hint {
+  font-size: 11px; font-family: var(--font-mono);
+  color: var(--text-muted); text-align: center;
+  line-height: 1.5;
+}
+.manual-hint { color: #f39c12; opacity: .8; }

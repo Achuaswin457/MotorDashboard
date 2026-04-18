@@ -1,0 +1,71 @@
+/* =============================================
+   MOTOR CONTROL DASHBOARD — Global Styles
+   =============================================*/
+:root {
+  --green-dark:   #1a3a1a;
+  --green-mid:    #2d6a2d;
+  --green-bright: #3d8b3d;
+  --green-light:  #5ab05a;
+  --green-glow:   #7dc97d;
+  --accent-red:   #c0392b;
+  --accent-yellow:#d4a017;
+  --accent-blue:  #2471a3;
+  --bg-main:      #0f1f0f;
+  --bg-panel:     #162016;
+  --bg-card:      #1a2a1a;
+  --border:       #2d4a2d;
+  --text-main:    #c8e6c8;
+  --text-muted:   #6a8f6a;
+  --text-bright:  #e8f5e8;
+  --font-main:    'IBM Plex Sans', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --radius-sm:    6px;
+  --radius-md:    10px;
+  --radius-lg:    14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-mid); }
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .35; transform: scale(.65); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fault-blink {
+  0%, 100% { border-color: var(--accent-red); box-shadow: 0 0 12px rgba(192,57,43,.3); }
+  50%       { border-color: transparent;      box-shadow: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes timer-fill {
+  from { width: 0; }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(61,139,61,.35); }
+  50%       { box-shadow: 0 0 22px rgba(61,139,61,.7); }
+}

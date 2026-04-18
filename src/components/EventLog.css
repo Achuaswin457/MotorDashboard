@@ -1,0 +1,37 @@
+/* EventLog.css */
+.log-card { display: flex; flex-direction: column; }
+
+.log-count {
+  margin-left: auto;
+  font-size: 10px; font-family: var(--font-mono);
+  background: var(--border); color: var(--text-muted);
+  padding: 1px 7px; border-radius: 10px;
+}
+
+.log-box {
+  flex: 1; max-height: 200px; overflow-y: auto;
+  background: rgba(0,0,0,.2); border: 1px solid var(--border);
+  border-radius: 7px; padding: 8px;
+  font-family: var(--font-mono); font-size: 11px;
+}
+
+.log-empty { color: var(--text-muted); font-size: 11px; }
+
+.log-entry {
+  display: grid; grid-template-columns: 12px 68px 1fr;
+  gap: 6px; align-items: start;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(45,74,45,.18);
+  line-height: 1.4;
+}
+.log-entry:last-child { border-bottom: none; }
+
+.log-icon { font-size: 8px; margin-top: 3px; }
+.log-time { color: var(--text-muted); white-space: nowrap; }
+.log-msg  { color: var(--text-main); word-break: break-word; }
+
+.log-info  .log-icon { color: var(--green-light); }
+.log-info  .log-msg  { color: var(--text-main); }
+.log-warn  .log-icon, .log-warn  .log-msg { color: #f39c12; }
+.log-error .log-icon, .log-error .log-msg { color: #e74c3c; }
+.log-cmd   .log-icon, .log-cmd   .log-msg { color: #5dade2; }
